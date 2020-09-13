@@ -1,0 +1,105 @@
+body{
+  padding-bottom: 0 !important;
+  padding-right: 0 !important;
+}
+
+main {
+  margin-left: 123px !important;
+  margin-top: 100px;
+  margin-right: 0;
+  margin-bottom: 0;
+  transition: margin-left $menu-collapse-time;
+
+  &.sub-hidden {
+    margin-left: $main-menu-width + $main-margin;
+  }
+
+  &.main-hidden {
+    margin-left: $main-margin;
+  }
+
+  .container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .blinkingdot {
+    height: 8px;
+    position: absolute;
+    width: 8px;
+    border-radius: 50%;
+    background: #000;
+    box-shadow: 0 0 0 0 #000;
+    transform: scale(1);
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+  	0% {
+  		transform: scale(0.95);
+  		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+  	}
+
+  	70% {
+  		transform: scale(1);
+  		box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+  	}
+
+  	100% {
+  		transform: scale(0.95);
+  		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  	}
+  }
+
+  @include respond-below(xl) {
+    margin-left: 113px !important;
+    margin-right: 0;
+    margin-top: 90px;
+    margin-bottom: 0;
+  }
+
+  @include respond-below(lg) {
+    margin-left: 100px !important;
+    margin-right: 0;
+    margin-top: 80px;
+    margin-bottom: 0;
+  }
+
+  @include respond-below(sm) {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    margin-top: $navbar-height-xs !important;
+    margin-bottom: 0;
+  }
+
+  @include respond-below(xs) {
+    margin-bottom: 0;
+  }
+}
+
+.rtl {
+  main {
+    margin-right: $sub-menu-width + $main-menu-width + $main-margin;
+    margin-left: $main-margin !important;
+    transition: margin-right $menu-collapse-time;
+
+    @include respond-below(xl) {
+      margin-right: $sub-menu-width-lg + $main-menu-width-lg + $main-margin-lg;
+      margin-left: $main-margin-lg !important;
+    }
+
+    @include respond-below(lg) {
+      margin-right: $sub-menu-width-md + $main-menu-width-md + $main-margin-md;
+      margin-left: $main-margin-md !important;
+    }
+
+    @include respond-below(sm) {
+      margin-right: $main-margin-xs !important;
+      margin-left: $main-margin-xs !important;
+    }
+
+    @include respond-below(xs) {
+      margin-bottom: 0;
+    }
+  }
+}

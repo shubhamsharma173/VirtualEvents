@@ -1,0 +1,114 @@
+{
+    "data": [
+      {
+        "title": "Inaugural Session",
+        "detail": "- Welcome Address by Dr Sangita Reddy, President, FICCI \n - Keynote Address by Mr Rashesh Shah, Past President, FICCI and Chairman & CEO, Edelweiss Group\n- Theme Address by Mr Sunil Sanghai, Chairman, FICCI National Committee on Capital Markets and Founder & CEO, NovaDhruva Capital Pvt. Ltd.\n- Exchange Perspective by Mr Ashishkumar Chauhan, Managing Director & CEO, BSE\n- Release of FICCI’s Experts’ Voice 2020 & FICCI-IIM Ahmedabad Report : Women on Boards in India\n- Inaugural Address by Mr Ajay Tyagi, Chairman, Securities and Exchange Board of India \n- Concluding Remarks by Mr Himanshu Kaji, Co-chair, FICCI Capital Markets Committee and Executive Director & Group COO, Edelweiss Financial Services Limited \n- Session moderated by Ms. Jyoti Vij, Deputy Secretary General, FICCI",
+        "category" : "9:30-11:00",
+        "createDate" : "22.07.2020",
+        "status" : "COMPLETED",
+        "label": "MORNING",
+        "labelColor": "primary",
+        "id": 1
+      },
+      {
+        "title": "Special Session with Chief Economic Adviser",
+        "detail": "- Introduction by Mr Sunil Sanghai, Chairman, FICCI National Committee on Capital Markets \n- Special Address by Dr Krishnamurthy Subramanian, Chief Economic Adviser, Government of India \n- Concluding Remarks by Mr Dilip Chenoy, Secretary General, FICCI ",
+        "category" : "11:00-11:45",
+        "createDate" : "22.07.2020",
+        "status" : "PENDING",
+        "label": "MORNING",
+        "labelColor": "primary",
+        "id": 2
+      },
+      {
+        "title": "Session on Social Stock Exchange",
+        "detail": "- Introduction by Mr Sunil Sanghai, Chairman, FICCI National Committee on Capital Markets\n- Presentation on Social Stock Exchange by Mr Amarjeet Singh, Executive Director, Securities and Exchange Board of India \n- Session Moderation and Vote of Thanks by Mrs Vidya Shah*, CEO, EdelGive Foundation ",
+        "category" : "11:45-12:05",
+        "createDate" : "22.07.2020",
+        "status" : "COMPLETED",
+        "label": "MORNING",
+        "labelColor": "primary",
+        "id": 3
+      },
+      {
+        "title": "Session on Infrastructure Financing",
+        "detail": "Introduction by Mr Sunil Sanghai, Chairman, FICCI National Committee on Capital Markets\n Address by Mr Sujit Prasad, Executive Director, Securities and Exchange Board of India Panelists \n • Mr Nikhil Naredi, Partner, Shardul Amarchand Mangaldas & Co \n • Mr Harsh Shah, CEO, IndiGrid - Sterlite Investment Managers Ltd ",
+        "category" : "12:05-12:45",
+        "createDate" : "22.07.2020",
+        "status" : "PENDING",
+        "label": "AFTERNOON",
+        "labelColor": "secondary",
+        "id": 4
+      },
+      {
+        "title": "Special Session with Secretary",
+        "detail": "Introduction by Mr Sunil Sanghai, Chairman, FICCI National Committee on Capital Markets\n Address by Mr Sujit Prasad, Executive Director, Securities and Exchange Board of India Panelists \n • Mr Nikhil Naredi, Partner, Shardul Amarchand Mangaldas & Co \n • Mr Harsh Shah, CEO, IndiGrid - Sterlite Investment Managers Ltd ",
+        "category" : "12:45-1:30",
+        "createDate" : "22.07.2020",
+        "status" : "COMPLETED",
+        "label": "AFTERNOON",
+        "labelColor": "secondary",
+        "id": 5
+      },
+      {
+        "title": "Presentation on FICCI IIM Ahmedabad Report",
+        "detail": "Introduction by Ms Jyoti Vij, Deputy Secretary General, FICCI \n Presentation by Dr Neharika Vohra, Professor, IIM Ahmedabad",
+        "category" : "1:30-1:45",
+        "createDate" : "22.07.2020",
+        "status" : "COMPLETED",
+        "label": "AFTERNOON",
+        "labelColor": "secondary",
+        "id": 6
+      },
+      {
+        "title": "Special Session with Mr G Mahalingam",
+        "detail": "Introduction and Session Moderation by Mr Vijay Chandok, Co- Chair, FICCI National Committee on Capital Markets and Managing Director & CEO, ICICI Securities Limited \n Special Address by Mr G Mahalingam, Whole Time Member, SEBI  \n Concluding Remarks by FICCI",
+        "category" : "9:30-10:00",
+        "createDate" : "23.07.2020",
+        "status" : "PENDING",
+        "label": "MORNING",
+        "labelColor": "primary",
+        "id": 7
+      },
+      {
+        "title": "Special Plenary Session with Secretary",
+        "detail": "Introduction by Mr Sunil Sanghai, Chairman, FICCI National Committee on Capital Markets \n Keynote Address by Mr Tarun Bajaj, Secretary, Department of Economic Affairs, Ministry of Finance \n Session moderation by Mr Shardul Shroff, Chairman, FICCI Committee on Stressed Assets and Executive Chairman, Shardul Amarchand Mangaldas & Co. \n Vote of Thanks by Mr Dilip Chenoy, Secretary General, FICCI",
+        "category" : "10:00-10:45",
+        "createDate" : "23.07.2020",
+        "status" : "COMPLETED",
+        "label": "MORNING",
+        "labelColor": "primary",
+        "id": 8
+      },
+      {
+        "title": "Session on Robust Debt Market",
+        "detail": "Session Keynote by Mr Ananta Barua, Whole Time Member, SEBI \n Panellists: \n• Mr Vijay Chandok, Co- Chair, FICCI National Committee on Capital Markets  \n• Mr Nilesh Shah, MD, Kotak Mahindra Asset Management Co. Ltd. \n• Mr R Govindan, Executive Vice President – Corporate Finance & Chief Risk Officer, Larsen & Toubro Ltd. \n• Mr Samar Banwat, Executive Director, NSDL \n• Mr Jujhar Singh, Managing Director, Global Head-Financial Markets India, Standard Chartered Bank",
+        "category" : "10:45-11:45",
+        "createDate" : "23.07.2020",
+        "status" : "PENDING",
+        "label": "MORNING",
+        "labelColor": "primary",
+        "id": 9
+      },
+      {
+        "title": "Session on Channelizing Foreign",
+        "detail": "Session Keynote by Mr K Rajaraman, Additional Secretary (Investment & IER), Department of Economic Affairs, Ministry of Finance \nPanellists: \n• Mr Sujoy Bose, Managing Director & CEO, National Investment and Infrastructure Fund (NIIF) \n• Mr Mark Austen, CEO, Asia Securities Industry & Financial Markets Association (ASIFMA)  \n• Mr Saurabh Agarwal, Managing Director, Infrastructure, South Asia, CDPQ \n• Ms Renuka Ramnath *, Founder & CEO, Multiples Asset Management Ltd",
+        "category" : "11:45-12:45",
+        "createDate" : "23.07.2020",
+        "status" : "COMPLETED",
+        "label": "AFTERNOON",
+        "labelColor": "secondary",
+        "id": 10
+      },
+      {
+        "title": "Session on Digitisation in Governance",
+        "detail": "Introduction by Dr Sangita Reddy, President, FICCI \nSetting the Theme by Mr Sunil Sanghai, Chairman, FICCI National Committee on Capital Markets \nKeynote Address by Mr Ajay Bhushan Pandey, Finance Secretary, Ministry of Finance \nConcluding Remarks by Mr Dilip Chenoy, Secretary General, FICCI",
+        "category" : "12:45-1:30",
+        "createDate" : "23.07.2020",
+        "status" : "COMPLETED",
+        "label": "AFTERNOON",
+        "labelColor": "secondary",
+        "id": 11
+      }
+    ]
+  }
