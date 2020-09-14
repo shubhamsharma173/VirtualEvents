@@ -19,6 +19,8 @@ import {
   Separator,
 } from '../../../components/common/CustomBootstrap';
 import Breadcrumb from '../../../containers/navs/Breadcrumb';
+import { NavLink } from 'react-router-dom';
+import Vimeo from '@u-wave/react-vimeo';
 
 const BlogList = ({ match }) => {
   const [modalBasic, setModalBasic] = useState(false);
@@ -30,7 +32,47 @@ const BlogList = ({ match }) => {
   const [modalNested, setModalNested] = useState(false);
   const [closeAll, setCloseAll] = useState(false);
   const [modalLarge, setModalLarge] = useState(false);
-  const [modalSmall, setModalSmall] = useState(false);
+  const [modalSmall, setModalSmall] = useState(true);
+
+  const maindivi={
+    position:"inline-block",
+  }
+  const divi={
+    width:"27%",
+    float:"right",
+    position:"relative",
+    borderRadius:"20px",
+    border: "2px solid rgba(34,41,47,.125"
+  }
+  const leftdivi={
+    height:"400px",
+    width:"70%",
+    float:"left",
+    position:"relative"
+  }
+  const vid={
+    display: 'block', transform:`skew(${0}deg, ${0}deg)`,position: 'absolute',
+                   top: '-64.40%',left: '0%'
+  }
+  const list={
+    listStyle:'none'
+  }
+  const listitem={
+    position:"relative",
+    padding: "10px 10px 10px 0px",
+    backgroundcolor: "#fff",
+    fontSize:"14.6px",
+    float:"left"
+  }
+  const listitemactive={
+    position:"relative",
+    padding: "15px 10px 10px 0px",
+    backgroundcolor: "#fff",
+    textcolor:"purple" ,
+    fontSize:"14.6px",
+    fontAlign:"center"
+  }
+
   return (
     <div style={{padding:"20px"}}>
     <Row>
@@ -39,7 +81,42 @@ const BlogList = ({ match }) => {
         <Separator className="mb-5" />
       </Colxx>
     </Row>
-    <Row>
+
+    <div>
+        <Modal
+                isOpen={modalSmall}
+                toggle={() => setModalSmall(!modalSmall)}
+                style={{maxWidth: "800px"}}
+              >
+                <ModalHeader>
+                  VIDEO LIBRARY
+                </ModalHeader>
+                <ModalBody>
+                <div style={maindivi}>
+                  <div style={leftdivi}>
+                    <div style={vid}>
+                      <Vimeo video="451526648" height="800px" width="525px" autoplay/>
+                      </div>
+                  </div>
+                  <div style={divi}>
+                  <ul style={list}>
+                    <li style={listitemactive}><NavLink to="">WELCOME VIDEO</NavLink></li>
+                    <li style={listitem}> L&T </li>
+                  </ul>
+                  </div>
+                </div>
+                </ModalBody>
+                <ModalFooter>
+                  <Button
+                    color="secondary"
+                    onClick={() => setModalSmall(false)}
+                  >
+                    Cancel
+                  </Button>
+                </ModalFooter>
+              </Modal>
+      </div>
+    {/*<Row>
       <Colxx xxs="12">
         <Card className="mb-4">
           <CardBody>
@@ -117,7 +194,7 @@ const BlogList = ({ match }) => {
             </CardBody>
           </Card>
         </Colxx>
-        </Row>
+        </Row>*/}
     </div>
   );
 };

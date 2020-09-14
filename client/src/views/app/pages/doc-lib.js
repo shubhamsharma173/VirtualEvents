@@ -31,6 +31,7 @@ const BlogList = ({ match }) => {
   const [modalLarge4, setModalLarge4] = useState(false);
   const [modalLarge5, setModalLarge5] = useState(false);
   const [modalLarge6, setModalLarge6] = useState(false);
+
   const maindivi={
     position:"inline-block",
   }
@@ -61,7 +62,7 @@ const BlogList = ({ match }) => {
     position:"relative",
     padding: "15px 10px 10px 0px",
     backgroundcolor: "#fff",
-    color:"purple",
+    textcolor:"purple" ,
     fontSize:"14.6px",
     fontAlign:"center"
   }
