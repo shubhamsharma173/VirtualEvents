@@ -35,8 +35,8 @@ const DefaultConference = ({ intl, match }) => {
      <div style={vid}>
        <Vimeo video="451526648" height="805px" width="720px" autoplay/>
      </div>
-		 	<iframe src="client/public/assets/logos/slido.png" height="100%" width="100%" style={slido}/>
-      {/*<iframe src="https://app.sli.do/event/e1oazdil" height="100%" width="100%" style={slido}/>*/}
+		 	{/*<iframe src="../../../../assets/logos/slido.png" height="100%" width="100%" style={logo}/>*/}
+      <iframe src="https://app.sli.do/event/e1oazdil" height="100%" width="100%" style={slido}/>
      </div>
     );
 };
