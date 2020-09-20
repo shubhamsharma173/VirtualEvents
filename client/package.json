@@ -5,6 +5,7 @@
   "private": true,
   "dependencies": {
     "@glidejs/glide": "^3.4.1",
+    "@u-wave/react-vimeo": "^0.9.0",
     "availity-reactstrap-validation": "^2.6.1",
     "axios": "^0.19.2",
     "chart.js": "2.9.3",
@@ -45,6 +46,7 @@
     "react-tagsinput": "^3.19.0",
     "react-transition-group": "^4.4.1",
     "react-user-tour": "^3.0.0",
+    "react-vimeo": "^2.0.0",
     "react-yandex-maps": "^4.5.0",
     "reactstrap": "^8.5.1",
     "redux": "^4.0.5",
@@ -80,6 +82,7 @@
     "not ie <= 11",
     "not op_mini all"
   ],
+  "proxy": "http://localhost:4000",
   "devDependencies": {
     "eslint-config-airbnb": "^18.2.0",
     "eslint-config-prettier": "^6.11.0",

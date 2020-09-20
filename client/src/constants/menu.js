@@ -21,16 +21,17 @@ const data = [
         to: `${adminRoot}/applications/todo`,
       },
       {
-        icon: 'simple-icon-calculator',
-        label: 'Conference',
-        to: `${adminRoot}/applications/conference`,
-      },
-      {
         icon: 'simple-icon-bubbles',
         label: 'Speakers Profile',
         to: `${adminRoot}/applications/speaker`,
       },
     ],
+  },
+  {
+    id: 'menu',
+    icon: 'simple-icon-calculator',
+    label: 'Conference',
+    to: `${adminRoot}/applications/conference`,
   },
   {
     id: 'docs',
@@ -75,11 +76,6 @@ const data = [
       },
     ],
   },
-  {
-    id: 'menu',
-    icon: 'iconsminds-three-arrow-fork',
-    label: 'Home',
-    to: `${adminRoot}/dashboards/default`,
-  },
+  
 ];
 export default data;

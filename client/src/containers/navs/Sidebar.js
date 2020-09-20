@@ -109,7 +109,7 @@ class Sidebar extends Component {
   };
 
   toggle = () => {
-    const hasSubItems = this.getIsHasSubItem();
+    const hasSubItems = false;
     this.props.changeSelectedMenuHasSubItems(hasSubItems);
     const { containerClassnames, menuClickCount } = this.props;
     const currentClasses = containerClassnames
@@ -307,6 +307,54 @@ class Sidebar extends Component {
     }
   };
 
+  closeSubMenu = (e, menuItem) => {
+    const selectedParent = menuItem.id;
+    const hasSubMenu = menuItem.subs && menuItem.subs.length > 0;
+    this.props.changeSelectedMenuHasSubItems(hasSubMenu);
+    if (1) {
+      this.setState({
+        viewingParentMenu: selectedParent,
+        selectedParentMenu: selectedParent,
+      });
+      this.toggle();
+    } else {
+      e.preventDefault();
+
+      const { containerClassnames, menuClickCount } = this.props;
+      const currentClasses = containerClassnames
+        ? containerClassnames.split(' ').filter((x) => x !== '')
+        : '';
+
+      if (!currentClasses.includes('menu-mobile')) {
+        if (
+          currentClasses.includes('menu-sub-hidden') &&
+          (menuClickCount === 2 || menuClickCount === 0)
+        ) {
+          this.props.setContainerClassnames(3, containerClassnames, hasSubMenu);
+        } else if (
+          currentClasses.includes('menu-hidden') &&
+          (menuClickCount === 1 || menuClickCount === 3)
+        ) {
+          this.props.setContainerClassnames(2, containerClassnames, hasSubMenu);
+        } else if (
+          currentClasses.includes('menu-default') &&
+          !currentClasses.includes('menu-sub-hidden') &&
+          (menuClickCount === 1 || menuClickCount === 3)
+        ) {
+          this.props.setContainerClassnames(0, containerClassnames, hasSubMenu);
+        }
+      } else {
+        this.props.addContainerClassname(
+          'sub-show-temporary',
+          containerClassnames
+        );
+      }
+      this.setState({
+        viewingParentMenu: selectedParent,
+      });
+    }
+  };
+
   toggleMenuCollapse = (e, menuKey) => {
     e.preventDefault();
 
@@ -414,6 +462,7 @@ class Sidebar extends Component {
                                   ? 'has-sub-item'
                                   : ''
                                 }`}
+                              onClick={(e) => this.closeSubMenu(e, sub)}
                             >
                               {sub.newWindow ? (
                                 <a
@@ -425,7 +474,7 @@ class Sidebar extends Component {
                                   <IntlMessages id={sub.label} />
                                 </a>
                               ) : sub.subs && sub.subs.length > 0 ? (
-                                <>
+                                {/* <>
                                   <NavLink
                                     className={`rotate-arrow-icon opacity-50 ${
                                       collapsedMenus.indexOf(
@@ -484,7 +533,7 @@ class Sidebar extends Component {
                                       })}
                                     </Nav>
                                   </Collapse>
-                                </>
+                                </> */}
                               ) : (
                                     <NavLink to={sub.to}>
                                       <i className={sub.icon} />{' '}

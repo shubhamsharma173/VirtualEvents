@@ -56,18 +56,21 @@ const DefaultDashboard = ({ intl, match }) => {
                    width: '6.35%', height: '5.09%',
                    top: '74.59%',left: '79.01%'
   }
- const vid={
-   display: 'block', transform:`skew(${0}deg, ${0}deg)`,position: 'absolute',
-                  top: '-4.4%',left: '41.75%',
- }
+ const video={
+  cursor: "pointer",
+  zIndex: 2,
+  transform: "skew(0deg, 0deg)",
+  position: "absolute",
+  width: "17%",
+  height: "17.3%",
+  top: "24.75%",
+  left: "41.65%"}
 
   return (
     <div style={image}>
       <img style={image} height="100%" width="100%" src="https://ficci-capam.framez.sg/images/lobby.jpg" />
-
-      <div style={vid}>
-        <Vimeo video="451526648" height="560px" width="220.60px" autoplay/>
-      </div>
+      <iframe src="https://player.vimeo.com/video/451526648?autoplay=1&app_id=122963" allowFullScreen allow="autoplay; encrypted-media" style={video}>      </iframe>
+    
 
       <NavLink to={`${adminRoot}/applications/conference`}>
       <div style={constyle} class="step1">

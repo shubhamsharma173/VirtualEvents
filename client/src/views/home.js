@@ -12,11 +12,13 @@ import Headroom from 'react-headroom'
 
 const Home = () => {
   const image={
-    height: "830px", width: "1500px"
+    position: "relative"
   }
   return (
     <NavLink to='./user/login'>
-      <img style={image} src="https://ficci-capam.framez.sg/static/media/beforelogin.7768c518.jpg" />
+      <div style={image}>
+        <img style={image} height="100%" width="100%" src="https://ficci-capam.framez.sg/static/media/beforelogin.7768c518.jpg" />
+      </div>
     </NavLink>
   )
 };

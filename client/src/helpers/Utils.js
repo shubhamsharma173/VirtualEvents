@@ -6,6 +6,7 @@ import {
   themeColorStorageKey,
   themeRadiusStorageKey
 } from '../constants/defaultValues';
+// import { getUser } from '../views/user/UserFunctions'
 
 export const mapOrder = (array, order, key) => {
   array.sort(function (a, b) {
