@@ -21,15 +21,20 @@ import {
 
 import { adminRoot, currentUser } from "../../constants/defaultValues"
 import { setCurrentUser } from '../../helpers/Utils';
+import axios from 'axios'
 
 export function* watchLoginUser() {
   yield takeEvery(LOGIN_USER, loginWithEmailPassword);
 }
 
 const loginWithEmailPasswordAsync = async (email, password) =>
-  await auth
-    .signInWithEmailAndPassword(email, password)
-    .then((user) => user)
+  // await auth
+  //   .signInWithEmailAndPassword(email, password)
+  await axios
+    .post('/login', {
+      username: email,
+      password: password
+    }).then((user) => user)
     .catch((error) => error);
 
 function* loginWithEmailPassword({ payload }) {
@@ -37,13 +42,17 @@ function* loginWithEmailPassword({ payload }) {
   const { history } = payload;
   try {
     const loginUser = yield call(loginWithEmailPasswordAsync, email, password);
-    if (!loginUser.message) {
-      const item = { uid: loginUser.user.uid, ...currentUser };
+    console.log(loginUser.data.error);
+    if (!loginUser.data.error) {
+      console.log(loginUser.data);
+      const item = { uid: loginUser.data._id, title: loginUser.data.name, img: loginUser.data.img, date: "Last seen today 15:24" };
+      // console.log(item);
       setCurrentUser(item);
       yield put(loginUserSuccess(item));
       history.push(adminRoot);
     } else {
-      yield put(loginUserError(loginUser.message));
+      // yield console.log("error fond");
+      yield put(loginUserError(loginUser.data.error));
     }
   } catch (error) {
     yield put(loginUserError(error));
@@ -54,28 +63,34 @@ export function* watchRegisterUser() {
   yield takeEvery(REGISTER_USER, registerWithEmailPassword);
 }
 
-const registerWithEmailPasswordAsync = async (email, password) =>
-  await auth
-    .createUserWithEmailAndPassword(email, password)
-    .then((user) => user)
+const registerWithEmailPasswordAsync = async (name,email, password) =>
+  await axios
+    .post('/register', {
+      name: name,
+      username: email,
+      password: password
+    }).then((user) => user)
     .catch((error) => error);
 
 function* registerWithEmailPassword({ payload }) {
-  const { email, password } = payload.user;
+  // console.log(payload);
+  const { name, email, password } = payload.user;
   const { history } = payload;
   try {
     const registerUser = yield call(
       registerWithEmailPasswordAsync,
+      name,
       email,
       password
     );
-    if (!registerUser.message) {
-      const item = { uid: registerUser.user.uid, ...currentUser };
-      setCurrentUser(item);
-      yield put(registerUserSuccess(item));
+    console.log(registerUser.data);
+    if (registerUser.data=="User Registered") {
+      // const item = { uid: registerUser.user.uid, ...currentUser };
+      // setCurrentUser(item);
+      // yield put(registerUserSuccess(item));
       history.push(adminRoot);
     } else {
-      yield put(registerUserError(registerUser.message));
+      yield put(registerUserError(registerUser.data));
     }
   } catch (error) {
     yield put(registerUserError(error));
@@ -87,8 +102,8 @@ export function* watchLogoutUser() {
 }
 
 const logoutAsync = async (history) => {
-  await auth
-    .signOut()
+  await axios
+    .get('/logout')
     .then((user) => user)
     .catch((error) => error);
   history.push(adminRoot);

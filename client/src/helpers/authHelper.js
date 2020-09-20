@@ -11,20 +11,24 @@ const ProtectedRoute = ({ component: Component, roles = undefined, ...rest }) =>
 	const setComponent = (props) => {
 		if (isAuthGuardActive) {
 			const currentUser = getCurrentUser();
+			// console.log(currentUser);
 			if (currentUser) {
-				if (roles) {
-					if (roles.includes(currentUser.role)) {
-						return <Component {...props} />;
-					} else {
-						return <Redirect
-							to={{
-								pathname: '/unauthorized',
-								state: { from: props.location },
-							}} />
-					}
-				} else {
+				// if (roles) {
+				// 	if (roles.includes(currentUser.role)) {
+				// 		console.log("one");
+				// 		return <Component {...props} />;
+				// 	} else {
+				// 		return <Redirect
+				// 			to={{
+				// 				pathname: '/unauthorized',
+				// 				state: { from: props.location },
+				// 			}} />
+				// 	}
+				// } else {
+					
+					
 					return <Component {...props} />;
-				}
+				// }
 			} else {
 				return <Redirect
 					to={{
@@ -33,6 +37,7 @@ const ProtectedRoute = ({ component: Component, roles = undefined, ...rest }) =>
 					}} />
 			}
 		} else {
+			console.log("three");
 			return <Component {...props} />;
 		}
 

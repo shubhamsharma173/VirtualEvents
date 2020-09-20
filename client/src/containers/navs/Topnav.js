@@ -35,7 +35,7 @@ import {
 import { MobileMenuIcon, MenuIcon } from '../../components/svg';
 import TopnavDarkSwitch from './Topnav.DarkSwitch';
 
-import { getDirection, setDirection } from '../../helpers/Utils';
+import { getDirection, setDirection, getCurrentUser } from '../../helpers/Utils';
 
 const TopNav = ({
   intl,
@@ -199,6 +199,9 @@ const TopNav = ({
     clickOnMobileMenuAction(_containerClassnames);
   };
 
+  const currentUser = getCurrentUser();
+		// console.log(currentUser);
+
   const { messages } = intl;
   return (
     <nav className="navbar fixed-top">
@@ -247,9 +250,9 @@ const TopNav = ({
         <div className="user d-inline-block">
           <UncontrolledDropdown className="dropdown-menu-right">
             <DropdownToggle className="p-0" color="empty">
-              <span className="name mr-1">Ishita Jain</span>
+              <span className="name mr-1">{currentUser.title}</span>
               <span>
-                <img alt="Profile" src="/assets/img/profiles/l-1.jpg" />
+                <img alt="Profile" src={currentUser.img} />
               </span>
             </DropdownToggle>
             <DropdownMenu className="mt-3" right>

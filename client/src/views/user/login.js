@@ -10,6 +10,7 @@ import { NotificationManager } from '../../components/common/react-notifications
 import { loginUser } from '../../redux/actions';
 import { Colxx } from '../../components/common/CustomBootstrap';
 import IntlMessages from '../../helpers/IntlMessages';
+// import { login } from './UserFunctions'
 
 const validatePassword = (value) => {
   let error;
@@ -111,7 +112,7 @@ const Login = ({ history, loading, error, loginUserAction }) => {
                   </FormGroup>
                   <div className="d-flex justify-content-between align-items-center">
                     <NavLink to="/user/forgot-password">
-                      <IntlMessages id="user.forgot-password-question" />
+                      {/* <IntlMessages id="user.forgot-password-question" /> */}
                     </NavLink>
                     <Button
                       color="primary"
