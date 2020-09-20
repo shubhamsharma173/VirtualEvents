@@ -12,10 +12,10 @@ import {
   Input,
 } from 'reactstrap';
 
-import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
-
+import { NavLink } from 'react-router-dom';
 import IntlMessages from '../../helpers/IntlMessages';
+
 import {
   setContainerClassnames,
   clickOnMobileMenu,
@@ -253,7 +253,7 @@ const TopNav = ({
               </span>
             </DropdownToggle>
             <DropdownMenu className="mt-3" right>
-              <DropdownItem>My Profile</DropdownItem>
+              <DropdownItem><NavLink to={`/app/dashboards/profile`}>My Profile</NavLink></DropdownItem>
               <DropdownItem divider />
               <DropdownItem onClick={() => handleLogout()}>
                 Sign out
