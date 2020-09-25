@@ -8,6 +8,9 @@ const DashboardDefault = React.lazy(() =>
 const AnalyticsDefault = React.lazy(() =>
   import(/* webpackChunkName: "dashboard-analytics" */ './analytics')
 );
+const Content = React.lazy(() =>
+  import(/* webpackChunkName: "dashboard-profile" */ './profile')
+);
 
 const Dashboards = ({ match }) => (
   <Suspense fallback={<div className="loading" />}>
@@ -20,6 +23,10 @@ const Dashboards = ({ match }) => (
       <Route
         path={`${match.url}/analytics`}
         render={(props) => <AnalyticsDefault {...props} />}
+      />
+      <Route
+        path={`${match.url}/profile`}
+        render={(props) => <Content {...props} />}
       />
       {/*
       <ProtectedRoute

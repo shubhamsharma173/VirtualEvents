@@ -124,13 +124,13 @@ class Sidebar extends Component {
       ) {
         clickIndex = 1;
       } else if (
-        currentClasses.includes('menu-sub-hidden') &&
+        currentClasses.includes('menu-default') &&
         (menuClickCount === 2 || menuClickCount === 3)
       ) {
         clickIndex = 0;
       } else if (
-        currentClasses.includes('menu-hidden') ||
-        currentClasses.includes('menu-mobile')
+        currentClasses.includes('menu-default') ||
+        currentClasses.includes('menu-default')
       ) {
         clickIndex = 0;
       }
@@ -279,12 +279,12 @@ class Sidebar extends Component {
 
       if (!currentClasses.includes('menu-mobile')) {
         if (
-          currentClasses.includes('menu-sub-hidden') &&
+          currentClasses.includes('menu-default') &&
           (menuClickCount === 2 || menuClickCount === 0)
         ) {
           this.props.setContainerClassnames(3, containerClassnames, hasSubMenu);
         } else if (
-          currentClasses.includes('menu-hidden') &&
+          currentClasses.includes('menu-sub-hidden') &&
           (menuClickCount === 1 || menuClickCount === 3)
         ) {
           this.props.setContainerClassnames(2, containerClassnames, hasSubMenu);
@@ -514,6 +514,7 @@ class Sidebar extends Component {
                                                 href={thirdSub.to}
                                                 rel="noopener noreferrer"
                                                 target="_blank"
+                                                onClick= {(e)=>this.toggleMenuCollapse(e,item)}
                                               >
                                                 <i className={thirdSub.icon} />{' '}
                                                 <IntlMessages
