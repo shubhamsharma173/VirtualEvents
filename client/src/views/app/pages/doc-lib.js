@@ -98,15 +98,15 @@ const BlogList = ({ match }) => {
                     <li style={listitem}
                         onClick={() => setLink("https://ficci-capam.framez.sg/docs/FICCI%20EOS%20-%20July%202020.pdf")}>FICCI EOS - JULY 2020 </li>
                     <li style={listitem}
-                        onClick={() => setLink("https://ficci-capam.framez.sg/docs/FICCI%20EOS%20-%20July%202020.pdf")}>MANUFACTURING SURVEY REPORT </li>
+                        onClick={() => setLink("https://ficci-capam.framez.sg/docs/Sponsors.pdf")}>MANUFACTURING SURVEY REPORT </li>
                     <li style={listitem}
                         onClick={() => setLink("https://ficci-capam.framez.sg/docs/FICCI%20EOS%20-%20July%202020.pdf")}>FICCI DHRUVA SURVEY </li>
                     <li style={listitem}
-                        onClick={() => setLink("https://ficci-capam.framez.sg/docs/FICCI%20EOS%20-%20July%202020.pdf")}>WOB_FINAL REPORT_3103_V12 </li>
+                        onClick={() => setLink("https://ficci-capam.framez.sg/docs/Sponsors.pdf")}>WOB_FINAL REPORT_3103_V12 </li>
                     <li style={listitem}
                         onClick={() => setLink("https://ficci-capam.framez.sg/docs/FICCI%20EOS%20-%20July%202020.pdf")}>CAPAM COMPENDIUM 2020 </li>
                     <li style={listitem}
-                        onClick={() => setLink("https://ficci-capam.framez.sg/docs/FICCI%20EOS%20-%20July%202020.pdf")}>L&T PROFILE </li>
+                        onClick={() => setLink("https://ficci-capam.framez.sg/docs/Sponsors.pdf")}>L&T PROFILE </li>
                   </ul>
                   </div>
                 </div>

@@ -14,7 +14,7 @@ const BlankPage = ({ match }) => {
      display: 'flex', justifyContent: 'center', alignItems: 'center',
                     transform:`skew(${0}deg, ${0}deg)`,position: 'absolute',
                     width: '15.57%', height: '11.3%',
-                    top: '21.13%',left: '12.17%',
+                    top: '21.13%',left: '5.17%',
    }
    const lounge={
      display: 'flex', justifyContent: 'center', alignItems: 'center',
@@ -26,13 +26,13 @@ const BlankPage = ({ match }) => {
      display: 'flex', justifyContent: 'center', alignItems: 'center',
                     transform:`skew(${0}deg, ${0}deg)`,position: 'absolute',
                     width: '15.07%', height: '11.3%',
-                    top: '33.19%',left: '12.17%'
+                    top: '33.19%',left: '5.17%'
    }
    const agenda={
      display: 'flex', justifyContent: 'center', alignItems: 'center',
                     transform:`skew(${0}deg, ${0}deg)`,position: 'absolute',
                     width: '15.57%', height: '11.3%',
-                    top: '47.15%',left: '11.90%'
+                    top: '47.15%',left: '4.90%'
    }
    const doc={
      display: 'flex', justifyContent: 'center', alignItems: 'center',

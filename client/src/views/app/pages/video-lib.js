@@ -33,7 +33,7 @@ const BlogList = ({ match }) => {
   const [closeAll, setCloseAll] = useState(false);
   const [modalLarge, setModalLarge] = useState(false);
   const [modalSmall, setModalSmall] = useState(true);
-
+  const [myLink, setLink] = useState("https://player.vimeo.com/video/451526648?autoplay=1&app_id=122963");
   const maindivi={
     position:"inline-block",
   }
@@ -52,7 +52,7 @@ const BlogList = ({ match }) => {
   }
   const vid={
     display: 'block', transform:`skew(${0}deg, ${0}deg)`,position: 'absolute',
-                   top: '-64.40%',left: '0%'
+                   top: '0.40%',left: '0%'
   }
   const list={
     listStyle:'none'
@@ -95,13 +95,14 @@ const BlogList = ({ match }) => {
                 <div style={maindivi}>
                   <div style={leftdivi}>
                     <div style={vid}>
-                      <Vimeo video="451526648" height="800px" width="525px" autoplay/>
+                      <iframe src={myLink} height="300px" width="525px">
+                      </iframe>
                       </div>
                   </div>
                   <div style={divi}>
                   <ul style={list}>
-                    <li style={listitemactive}><NavLink to="">WELCOME VIDEO</NavLink></li>
-                    <li style={listitem}> L&T </li>
+                    <li style={listitemactive} onClick={() => setLink("https://player.vimeo.com/video/451526648?autoplay=1&app_id=122963")}>WELCOME VIDEO</li>
+                    <li style={listitem} onClick={() => setLink("https://player.vimeo.com/video/451526648?autoplay=1&app_id=122963")}> L&T </li>
                   </ul>
                   </div>
                 </div>
