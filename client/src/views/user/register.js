@@ -49,8 +49,10 @@ const Register = ({ history, loading, error, registerUserAction }) => {
   const [name] = useState();
 
   useEffect(() => {
-    if (error) {
-      NotificationManager.warning(error, 'Register Error', 3000, null, null, '');
+    console.log("useEffect error",error);
+    if (error && error !=='') {
+      alert(error)
+      // NotificationManager.warning(error, 'Register Error', 3000, null, null, '');
     }
   }, [error]);
 

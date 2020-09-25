@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {Link } from "react-router-dom";
-import { Row, Card, CardTitle, Label, FormGroup, Button } from 'reactstrap';
+import { Row, Card, CardTitle, Label, FormGroup, Button, Alert } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 
@@ -37,8 +37,10 @@ const Login = ({ history, loading, error, loginUserAction }) => {
   const [password] = useState('gogo123');
 
   useEffect(() => {
-    if (error) {
-      NotificationManager.warning(error, 'Login Error', 3000, null, null, '');
+    // console.log('useEffect Error',error)
+    if (error && error !=='') {
+      alert(error)
+      // NotificationManager.warning(error, 'Login Error', 3000, null, null, '');
     }
   }, [error]);
 

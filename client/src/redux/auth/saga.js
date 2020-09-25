@@ -22,6 +22,7 @@ import {
 import { adminRoot, currentUser } from "../../constants/defaultValues"
 import { setCurrentUser } from '../../helpers/Utils';
 import axios from 'axios'
+import login from '../../views/user/login';
 
 const axiosConfig = {
   headers: {
@@ -36,10 +37,10 @@ const loginWithEmailPasswordAsync = async (email, password) =>
   // await auth
   //   .signInWithEmailAndPassword(email, password)
   await axios
-    .post('/login', {
+    .post('http://localhost:4000/login', {
       username: email,
       password: password
-    },axiosConfig).then((user) => user)
+    }).then((user) => user)
     .catch((error) => error);
 
 function* loginWithEmailPassword({ payload }) {
@@ -56,7 +57,7 @@ function* loginWithEmailPassword({ payload }) {
       yield put(loginUserSuccess(item));
       history.push(adminRoot);
     } else {
-      // yield console.log("error fond");
+      // yield console.log(loginUser.data.error);
       yield put(loginUserError(loginUser.data.error));
     }
   } catch (error) {
@@ -70,11 +71,11 @@ export function* watchRegisterUser() {
 
 const registerWithEmailPasswordAsync = async (name,email, password) =>
   await axios
-    .post('/register', {
+    .post('http://localhost:4000/register', {
       name: name,
       username: email,
       password: password
-    },axiosConfig).then((user) => user)
+    }).then((user) => user)
     .catch((error) => error);
 
 function* registerWithEmailPassword({ payload }) {
@@ -89,7 +90,8 @@ function* registerWithEmailPassword({ payload }) {
       password
     );
     console.log(registerUser.data);
-    if (registerUser.data=="User Registered") {
+    if (registerUser.data) {
+      yield put(registerUserError(registerUser.data));
       // const item = { uid: registerUser.user.uid, ...currentUser };
       // setCurrentUser(item);
       // yield put(registerUserSuccess(item));
