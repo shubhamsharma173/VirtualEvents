@@ -114,11 +114,11 @@ const DefaultDashboard = ({ intl, match }) => {
   left: "41.65%"}
 
   return (
-    
+
     <div style={image}>
       <img style={image} height="100%" width="100%" src="https://ficci-capam.framez.sg/images/lobby.jpg" />
       <iframe src="https://player.vimeo.com/video/451526648?autoplay=1&app_id=122963" allowFullScreen allow="autoplay; encrypted-media" style={video}>      </iframe>
-    
+
       <Tour
         // disableOverlay
         showProgress={true}
