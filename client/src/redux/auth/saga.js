@@ -23,6 +23,11 @@ import { adminRoot, currentUser } from "../../constants/defaultValues"
 import { setCurrentUser } from '../../helpers/Utils';
 import axios from 'axios'
 
+const axiosConfig = {
+  headers: {
+      "Access-Control-Allow-Origin": "*",
+  }
+};
 export function* watchLoginUser() {
   yield takeEvery(LOGIN_USER, loginWithEmailPassword);
 }
@@ -34,7 +39,7 @@ const loginWithEmailPasswordAsync = async (email, password) =>
     .post('/login', {
       username: email,
       password: password
-    }).then((user) => user)
+    },axiosConfig).then((user) => user)
     .catch((error) => error);
 
 function* loginWithEmailPassword({ payload }) {
@@ -69,7 +74,7 @@ const registerWithEmailPasswordAsync = async (name,email, password) =>
       name: name,
       username: email,
       password: password
-    }).then((user) => user)
+    },axiosConfig).then((user) => user)
     .catch((error) => error);
 
 function* registerWithEmailPassword({ payload }) {
