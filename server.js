@@ -84,6 +84,7 @@ app.post("/register", (req, res) => {
         name: req.body.name,
         username: req.body.username,
         password: hashedPassword,
+        img: "/assets/img/profiles/l-1.jpg",
       });
       await newUser.save();
       console.log("User Registered");

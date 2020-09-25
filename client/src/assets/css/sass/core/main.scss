@@ -103,3 +103,60 @@ main {
     }
   }
 }
+
+.__floater{
+  visibility:visible !important;
+  z-index:9999 !important;
+  opacity:1 !important;
+  filter:drop-shadow(0 0 7px rgba(0,0,0,0.5));
+  left:15px !important
+}
+.react-joyride__overlay{
+  height: 100% !important;
+  z-index:9999 !important
+}
+.react-joyride__tooltip{
+  background-color:#fff !important;
+  max-width:320px !important;
+  border-radius:0.5rem !important
+}
+.react-joyride__tooltip div{
+  color:black;
+  font-size:14px
+}
+.react-joyride__tooltip ~ .__floater__arrow polygon{
+  fill:#fff !important
+}
+.react-joyride__tooltip [data-action="skip"],
+.react-joyride__tooltip [data-action="back"],
+.react-joyride__tooltip [title="Last"],
+.react-joyride__tooltip [title="Next"]{
+  color:black !important;
+  background-color:transparent !important;
+  // border:1px solid black !important;
+  // border-radius:6px !important;
+  font-size:0.75rem !important
+}
+.react-joyride__tooltip [title="Last"],
+.react-joyride__tooltip [title="Next"]{
+  background-color: green !important;
+  color:#fff !important;
+  font-weight: 600;
+}
+.react-joyride__tooltip [data-action="skip"]:focus,
+.react-joyride__tooltip [data-action="back"]:focus,
+.react-joyride__tooltip [title="Last"]:focus,
+.react-joyride__tooltip [title="Next"]:focus{
+  outline:0
+}
+
+.react-joyride__tooltip [data-action="close"]{
+  padding:10px !important
+}
+.react-joyride__tooltip [data-action="close"] svg{
+  height:10px;width:10px
+}
+.react-joyride__tooltip [data-action="close"] path{
+  fill:black
+}
+

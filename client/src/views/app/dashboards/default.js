@@ -1,18 +1,65 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { injectIntl } from 'react-intl';
 import { Row } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
 import { Colxx, Separator } from '../../../components/common/CustomBootstrap';
 import Breadcrumb from '../../../containers/navs/Breadcrumb';
 import { adminRoot } from '../../../constants/defaultValues';
-import Tour from "react-user-tour";
+// import Tour from "react-user-tour";
 import Vimeo from '@u-wave/react-vimeo';
+import Tour, { STATUS } from "react-joyride";
+import login from '../../user/login';
 
 const DefaultDashboard = ({ intl, match }) => {
   const { messages } = intl;
 
+  const steps = [
+    {
+      target: "#t2",
+      content: "Click here to access Helpdesk",
+      disableBeacon: true,
+      placement: "top"
+    },
+    {
+      target: "#t3",
+      content: "Click here to enter Conference",
+      disableBeacon: true,
+      placement: "top"
+    },
+    {
+      target: "#t4",
+      content: "Click here to enter Networking Lounge",
+      disableBeacon: true,
+      placement: "top"
+    },
+    {
+      target: "#t5",
+      content: "Click here to view Agenda",
+      disableBeacon: true,
+      placement: "top"
+    },
+    {
+      target: "#t6",
+      content: "Click here to view Speaker Profile",
+      disableBeacon: true,
+      placement: "top"
+    },
+    {
+      target: "#a5",
+      content: "Click here to view Document Library",
+      disableBeacon: true,
+      placement: "top"
+    },
+    {
+      target: "#a6",
+      content: "Click here for Technical Support",
+      disableBeacon: true,
+      placement: "top"
+    }
+  ]
+
   const image={
-    position: "relative"
+    position: "relative",
   }
   const hdstyle={
     display: 'flex', justifyContent: 'center', alignItems: 'center',
@@ -67,49 +114,64 @@ const DefaultDashboard = ({ intl, match }) => {
   left: "41.65%"}
 
   return (
+    
     <div style={image}>
       <img style={image} height="100%" width="100%" src="https://ficci-capam.framez.sg/images/lobby.jpg" />
       <iframe src="https://player.vimeo.com/video/451526648?autoplay=1&app_id=122963" allowFullScreen allow="autoplay; encrypted-media" style={video}>      </iframe>
     
-
+      <Tour
+        // disableOverlay
+        showProgress={true}
+        steps={steps}
+        run={true}
+        continuous={true}
+        showSkipButton={true}
+        floaterProps={{ disableAnimation: true }}
+        callback={data => {
+          if ([STATUS.FINISHED, STATUS.SKIPPED].includes(data.status)) {
+            // this.setState({ isTouropen: false })
+            // this.props.togglehometour(true);
+          }
+        }}
+      />
       <NavLink to={`${adminRoot}/applications/conference`}>
-      <div style={constyle} class="step1">
+      <div style={constyle} id='t3'>
         <span className="blinkingdot"></span>
       </div>
       </NavLink>
 
       <NavLink to={`${adminRoot}/dashboards/analytics`}>
-      <div style={lounge} class="step2">
+      <div style={lounge} id='t4'>
         <span className="blinkingdot"></span>
       </div>
       </NavLink>
 
       <NavLink to={`${adminRoot}/ui/help`}>
-      <div style={hdstyle}>
+      <div style={hdstyle} id='t2'>
         <span className="blinkingdot"></span>
       </div>
       </NavLink>
 
       <NavLink to={`${adminRoot}/applications/speaker`}>
-      <div style={speaker}>
+      <div style={speaker} id='t6'>
         <span className="blinkingdot"></span>
       </div>
       </NavLink>
 
       <NavLink to={`${adminRoot}/applications/todo`}>
-      <div style={agenda}>
+      <div style={agenda} id='t5'>
         <span className="blinkingdot"></span>
       </div>
       </NavLink>
 
       <NavLink to={`${adminRoot}/pages/blog/blog-list`}>
-      <div style={doc}>
+      <div style={doc} id='a5'>
         <span className="blinkingdot"></span>
       </div>
       </NavLink>
 
       <NavLink to={`${adminRoot}/ui/faq`}>
-      <div style={support}>
+      <div style={support} id='a6'>
         <span className="blinkingdot"></span>
       </div>
       </NavLink>
