@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const nodemailer = require('nodemailer');
 const express = require("express");
 const cors = require("cors");
 const passport = require("passport");
@@ -73,7 +74,8 @@ app.post("/login", (req, res, next) => {
 });
 app.post("/register", (req, res) => {
   console.log(req.body);
-  User.findOne({ username: req.body.username }, async (err, doc) => {
+  let id=req.body.username.toLowerCase();
+  User.findOne({ username: id }, async (err, doc) => {
     if (err) {
       console.log(err);
     };
@@ -85,7 +87,7 @@ app.post("/register", (req, res) => {
 
       const newUser = new User({
         name: req.body.name,
-        username: req.body.username,
+        username: id,
         password: hashedPassword,
         img: "/assets/img/profiles/l-1.jpg",
       });
@@ -95,6 +97,69 @@ app.post("/register", (req, res) => {
     }
   });
 });
+
+function generatePassword() {
+  var length = 8,
+      charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+      retVal = "";
+  for (var i = 0, n = charset.length; i < length; ++i) {
+      retVal += charset.charAt(Math.floor(Math.random() * n));
+  }
+  return retVal;
+}
+// let ranPass=generatePassword();
+// console.log(ranPass);
+
+app.post("/registeration", (req, res) => {
+  let ranPass=generatePassword();
+  console.log(req.body);
+  let id=req.body.username.toLowerCase();
+  User.findOne({ username: id }, async (err, doc) => {
+    if (err) throw err;
+    if (doc) {
+      res.send("User Already Exists")};
+    if (!doc) {
+      const hashedPassword = await bcrypt.hash(ranPass, 10);
+
+      const newUser = new User({
+        name: req.body.name,
+        username: id,
+        password: hashedPassword,
+        img: "/assets/img/profiles/l-1.jpg",
+      });
+      await newUser.save();
+      // Step 1
+      let transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          user: 'ishita.nyuc@gmail.com', // TODO: your mail account
+          pass: 'Ishita@nyuc3020' // TODO: your mail password
+        }
+      });
+
+      // Step 2
+      let mailOptions = {
+        from: 'ishita.nyuc@gmail.com', // TODO: email sender
+        to: id, // TODO: email receiver
+        subject: 'Registered Successfully!!',
+        text: 'Greetings! \n\nThank you for registering with FICCI CAPAM 2020!\n\nPlease find your email id and password below\n\nEMail- '+id+'\n\nPassword- '+ranPass+'\n\nHead on to our login page now-> https://ficci.netlify.app/ \n\nFeel free to reach out in case of any issue. Good Luck, thanks.\n\nRegards\n\nFICCI CAPAM 2020',
+      };
+
+      // Step 3
+      transporter.sendMail(mailOptions, (err, data) => {
+        if (err) {
+          console.log('Error ',err);
+        }else{
+          console.log('Email sent!!!')
+        }
+        
+      });
+      console.log("User Registered");
+      res.send("User Registered");
+    }
+  });
+});
+
 app.get("/logout", (req, res) => {
   req.logout();
   res.send();

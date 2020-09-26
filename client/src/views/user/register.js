@@ -45,7 +45,7 @@ const validateEmail = (value) => {
 };
 const Register = ({ history, loading, error, registerUserAction }) => {
   const [email] = useState();
-  const [password] = useState();
+  // const [password] = useState();
   const [name] = useState();
 
   useEffect(() => {
@@ -57,7 +57,7 @@ const Register = ({ history, loading, error, registerUserAction }) => {
   }, [error]);
 
   const onUserRegister = (values) => {
-    if (name !== '' && email !== '' && password !== '') {
+    if (name !== '' && email !== '') {
       // console.log(values);
       registerUserAction(values, history)
       // history.push(adminRoot);
@@ -65,7 +65,7 @@ const Register = ({ history, loading, error, registerUserAction }) => {
     // call registerUserAction()
   };
 
-  const initialValues = { name, email, password };
+  const initialValues = { name, email };
 
   return (
     <Row className="h-100">
@@ -126,11 +126,11 @@ const Register = ({ history, loading, error, registerUserAction }) => {
                 )}
               </FormGroup>
 
-              <FormGroup className="form-group has-float-label  mb-4">
+              {/* <FormGroup className="form-group has-float-label  mb-4">
                 <Label>
                   <IntlMessages id="user.password" defaultValue={password} />
                 </Label>
-                {/* <Input type="password" /> */}
+                <Input type="password" />
                 <Field
                   className="form-control"
                   type="password"
@@ -142,7 +142,7 @@ const Register = ({ history, loading, error, registerUserAction }) => {
                     {errors.password}
                   </div>
                 )}
-              </FormGroup>
+              </FormGroup> */}
 
               <div className="d-flex justify-content-end align-items-center">
                 <Button

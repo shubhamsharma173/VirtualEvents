@@ -37,10 +37,10 @@ const loginWithEmailPasswordAsync = async (email, password) =>
   // await auth
   //   .signInWithEmailAndPassword(email, password)
   await axios
-    .post('http://localhost:4000/login', {
+    .post('https://pacific-shore-97296.herokuapp.com/login', {
       username: email,
       password: password
-    }).then((user) => user)
+    },axiosConfig).then((user) => user)
     .catch((error) => error);
 
 function* loginWithEmailPassword({ payload }) {
@@ -71,11 +71,11 @@ export function* watchRegisterUser() {
 
 const registerWithEmailPasswordAsync = async (name,email, password) =>
   await axios
-    .post('http://localhost:4000/register', {
+    .post('https://pacific-shore-97296.herokuapp.com/registeration', {
       name: name,
-      username: email,
-      password: password
-    }).then((user) => user)
+      username: email
+      // password: password
+    },axiosConfig).then((user) => user)
     .catch((error) => error);
 
 function* registerWithEmailPassword({ payload }) {
