@@ -12,7 +12,7 @@ const app = express();
 const User = require("./user");
 //----------------------------------------- END OF IMPORTS---------------------------------------------------
 mongoose.connect(
-  "mongodb+srv://ishita303:x4mTFzFpY3eEcA3@cluster0.8y2ma.mongodb.net/Ficcievent",
+  process.env.url,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
